@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     resources :posts
   end
   root 'groups#index'
+  
+  namespace :account do
+    resources :groups
+  end
 end
