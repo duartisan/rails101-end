@@ -1,0 +1,24 @@
+<div class="col-md-12">
+  <h2 class="text-center">我发表过的文章</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> 内容 </th>
+        <th> 群组名称 </th>
+        <th> 最后更新 </th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+       <tr>
+         <td> <%= post.content %> </td>
+         <td> <%= post.group.title %> </td>
+         <td> <%= post.updated_at %> </td>
+         <td> <%= link_to('修改', edit_group_post_path(post.group, post), class: "btn btn-default btn-xs") %> </td>
+         <td> <%= link_to('删除', group_post_path(post.group, post), method: :delete, data: { confirm: "确定要删除吗?"}, class: "btn btn-default btn-xs") %> </td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
